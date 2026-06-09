@@ -9,8 +9,8 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: apps/nginx
-    repoURL: https://github.com/LilithPandragon/my-new-gitops-repo
+    path: my-new-gitops-repo/apps/nginx
+    repoURL: https://github.com/LilithPandragon/dritte-einheit
     targetRevision: HEAD
   syncPolicy:
     automated:

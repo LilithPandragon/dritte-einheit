@@ -12,8 +12,8 @@ spec:
     directory:
       exclude: base-repo.yaml
       include: '*.yaml'
-    path: .
-    repoURL: https://github.com/LilithPandragon/my-new-gitops-repo
+    path: my-new-gitops-repo
+    repoURL: https://github.com/LilithPandragon/dritte-einheit
     targetRevision: HEAD
   syncPolicy:
     automated:

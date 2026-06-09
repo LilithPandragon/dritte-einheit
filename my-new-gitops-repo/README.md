@@ -6,9 +6,13 @@ GitOps-Repository für Argo CD mit App-of-Apps-Muster.
 
 ```
 base-repo (Root-Application)
-├── nginx          → Application (deployed Pods in Namespace nginx)
-├── podinfo        → Application (deployed Pods in Namespace podinfo)
-├── team-a         → Application (Team-Repo my-team-repo)
+├── nginx              → Application (Pods in Namespace nginx)
+├── podinfo            → Application (Pods in Namespace podinfo)
+├── team-a             → Application (Team-Repo my-team-repo)
+├── apps               → ApplicationSet (generiert Apps aus appset-apps/*)
+│   ├── apps-fancy-app
+│   ├── apps-nginx
+│   └── apps-podinfo
 └── my-first-webserver → AppProject
 ```
 
