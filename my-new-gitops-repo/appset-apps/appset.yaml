@@ -9,23 +9,24 @@ spec:
       repoURL: https://github.com/LilithPandragon/my-new-gitops-repo
       revision: HEAD
       directories:
-      - path: "appset-apps/*"
-
-
-
-
-  destination:
-    namespace: podinfo
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    path: apps/podinfo
-    repoURL: https://github.com/LilithPandragon/my-new-gitops-repo
-    targetRevision: HEAD
-  syncPolicy:
-    automated:
-      enabled: true
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - CreateNamespace=true         
+      - path: appset-apps/*
+  template:
+    metadata:
+      name: 'apps-{{path.basename}}'
+      namespace: argocd
+    spec:
+      destination:
+        namespace: 'apps-{{path.basename}}'
+        server: https://kubernetes.default.svc
+      project: default
+      source:
+        path: '{{ path }}'
+        repoURL: https://github.com/LilithPandragon/my-new-gitops-repo
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          enabled: true
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
